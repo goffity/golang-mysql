@@ -1,9 +1,9 @@
 node{
-    stage("checkout"{
+    stage("checkout"){
         checkout scm
-    })
+    }
     stage("build"){
-        sh "go build"
+        sh "echo =============== Build stage ==============="
     }
     stage("deploy"){
         // sshPublisher(
@@ -11,12 +11,15 @@ node{
         //         sshPublisherDesc(
         //             configName: 'server-1', transfers: [
         //                 sshTransfer(
-        //                     cleanRemote: false, excludes: '', execCommand: './go.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'dist/*'
+        //                     cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'README.rm'
         //                 )
         //             ], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false
         //         )
         //     ]
         // )
-        sh "scp README.md vagrant@192.168.31.241:/usr/share/nginx/html/README.md"
+        sh "whoami"
+        sh "groups"
+        sh "ssh -v -i /var/lib/jenkins/.ssh/id_rsa vagrant@192.168.31.241 ls -al /usr/share/nginx/html"
+        sh "scp -v -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa README.md vagrant@192.168.31.241:/usr/share/nginx/html/README.md"
     }
 }
