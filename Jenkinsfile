@@ -18,6 +18,7 @@ node{
         //     ]
         // )
         sh "whoami"
+        sh "groups"
         sh "ssh -v -i /var/lib/jenkins/.ssh/id_rsa vagrant@192.168.31.241 ls -al /usr/share/nginx/html"
         sh "scp -v -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa README.md vagrant@192.168.31.241:/usr/share/nginx/html/README.md"
     }
