@@ -17,6 +17,6 @@ node{
         //         )
         //     ]
         // )
-        sh "scp -i /var/lib/jenkins/.ssh/id_rsa README.md vagrant@192.168.31.241:/usr/share/nginx/html/README.md"
+        sh "scp -v -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa README.md vagrant@192.168.31.241:/usr/share/nginx/html/README.md"
     }
 }
