@@ -3,7 +3,7 @@ node{
         checkout scm
     }
     stage("build"){
-        sh "go build"
+        sh "echo =============== Build stage ==============="
     }
     stage("deploy"){
         // sshPublisher(
