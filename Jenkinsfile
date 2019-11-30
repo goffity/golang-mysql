@@ -17,6 +17,6 @@ node{
         //         )
         //     ]
         // )
-        sh "scp README.md vagrant@192.168.31.241:/usr/share/nginx/html/README.md"
+        sh "scp -i /home/vagrant/.ssh/id_rsa README.md vagrant@192.168.31.241:/usr/share/nginx/html/README.md"
     }
 }
