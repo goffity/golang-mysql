@@ -17,7 +17,7 @@ node{
         //         )
         //     ]
         // )
-        step{
+        steps{
             sshagent(credentials : ['jenkins-private-key']){
                 sh "whoami"
                 sh "groups"
