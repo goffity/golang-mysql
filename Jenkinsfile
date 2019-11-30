@@ -1,7 +1,7 @@
 node{
-    stage("checkout"{
+    stage("checkout"){
         checkout scm
-    })
+    }
     stage("build"){
         sh "go build"
     }
